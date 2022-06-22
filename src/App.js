@@ -2,7 +2,8 @@ import "./App.css"
 function App() {
   return (
     <div className="App">
-      App by Jose Luis Ochoa Monroy
+      <div className="blur"></div>
+      <div className="blur"></div>
     </div>
   );
 }
