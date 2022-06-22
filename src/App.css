@@ -13,6 +13,7 @@
   --location: #EF5757;
   --schedule: #E1AE4A;
   --bg: #f3f3f3;
+  --blurBg: #a6ddf0;
 }
 
 .App {
@@ -20,4 +21,13 @@
   color: var(--black);
   background: var(--bg);
   padding: 1rem 1rem;
+}
+
+.blur {
+  position: absolute;
+  width: 22rem;
+  height: 14rem;
+  border-radius: 40%;
+  background: var(--blurBg);
+  filter: blur(60px);
 }
