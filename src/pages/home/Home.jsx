@@ -10,7 +10,6 @@ const Home = () => {
       <ProfileSide />
       <PostSide />
       <TrendSide />
-      <div className='trendSide'>Trend</div>
     </div>
   )
 }
