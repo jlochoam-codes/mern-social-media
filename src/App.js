@@ -2,7 +2,7 @@ import "./App.css"
 function App() {
   return (
     <div className="App">
-        Subscribe Zainkeeps code
+      App by Jose Luis Ochoa Monroy
     </div>
   );
 }
