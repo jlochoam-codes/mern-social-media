@@ -1,3 +1,5 @@
-.logoSearch {
-  color: red;
+.logoSearch img {
+  /*Flip the img horizontally*/
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
 }
