@@ -1,5 +1,39 @@
-.logoSearch img {
+.logo img {
   /*Flip the img horizontally*/
   -webkit-transform: scaleX(-1);
   transform: scaleX(-1);
+}
+
+.logo {
+  /*Space between logo and search bar*/
+  display: flex;
+  gap: 0.4rem;
+}
+
+.search {
+  display: flex;
+  background-color: var(--inputColor);
+  border-radius: 10px;
+  padding: 5px;
+}
+
+.search>input {
+  background-color: transparent;
+  border: none;
+  outline: none;
+}
+
+.searchIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f95f35;
+  border-radius: 5px;
+  padding: 4px;
+  color: white;
+}
+
+.searchIcon:hover {
+  cursor: pointer;
+  background: #f99827;
 }
