@@ -1,4 +1,5 @@
 import React from 'react'
+import FollowersCard from '../followersCard/FollowersCard'
 import LogoSearch from '../logoSearch/LogoSearch'
 import ProfileCard from '../profileCard/ProfileCard'
 import './ProfileSide.css'
@@ -8,6 +9,7 @@ const ProfileSide = () => {
     <div className='profileSide'>
       <LogoSearch />
       <ProfileCard />
+      <FollowersCard />
     </div>
   )
 }
