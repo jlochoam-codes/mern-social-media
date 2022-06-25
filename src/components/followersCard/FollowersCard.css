@@ -1,3 +1,61 @@
 .followersCard {
-  color: green;
+  align-self: flex-start;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.followersCard>h3 {
+  font-weight: bold;
+  font-size: 0.7rem;
+  margin-bottom: -0.1rem;
+  margin-top: -0.2rem;
+}
+
+.follower {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.follower>input {
+  justify-self: end;
+  align-self: center;
+  border: none;
+  border-radius: 0.5rem;
+  color: white;
+  background-color: #f95f35;
+  font-size: 0.7rem;
+  padding: 0.35rem 1rem;
+}
+
+.follower>input:hover {
+  background-color: #f99827;
+}
+
+.followerData {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.followerData>img {
+  max-width: 20%;
+  border-radius: 50%;
+  margin-right: 0.5rem;
+}
+
+.followerName {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+}
+
+.followerName>span:first-child {
+  font-weight: bold;
+  font-size: 0.6rem;
+}
+
+.followerName>span:last-child {
+  font-size: 0.5rem;
 }
