@@ -1,5 +1,5 @@
 .Home {
   position: relative;
   display: grid;
-  grid-template-columns: 19rem auto 18rem;
+  grid-template-columns: 15rem auto 17rem;
 }

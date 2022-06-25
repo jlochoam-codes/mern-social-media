@@ -12,6 +12,7 @@
 
 .search {
   display: flex;
+  align-items: center;
   background-color: var(--inputColor);
   border-radius: 10px;
   padding: 5px;
@@ -21,6 +22,10 @@
   background-color: transparent;
   border: none;
   outline: none;
+  font-size: 0.7rem;
+  width: 80%;
+  height: 70%;
+  margin-right: 5px;
 }
 
 .searchIcon {
