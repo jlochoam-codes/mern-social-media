@@ -30,6 +30,7 @@
 }
 
 .follower>input:hover {
+  cursor: pointer;
   background-color: #f99827;
 }
 
