@@ -60,3 +60,19 @@
   cursor: pointer;
   background-color: #f99827;
 }
+
+.previewImage {
+  display: flex;
+  flex-direction: row;
+}
+
+.previewImage>span {
+  cursor: pointer;
+  display: inline-block;
+  height: 24px;
+}
+
+.previewImage>img {
+  max-width: 75%;
+  max-height: 15rem;
+}
