@@ -73,6 +73,8 @@
 }
 
 .previewImage>img {
-  max-width: 75%;
+  max-width: 90%;
   max-height: 15rem;
+  object-fit: cover;
+  border-radius: 0.5rem;
 }
