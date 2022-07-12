@@ -34,7 +34,7 @@
 
 .postOptions {
   display: flex;
-  justify-content: space-around;
+  gap: 1rem;
 }
 
 .option {
@@ -46,6 +46,10 @@
 
 .option:hover {
   cursor: pointer;
+}
+
+.submitPost {
+  margin-left: auto;
 }
 
 .submitPost>input {
