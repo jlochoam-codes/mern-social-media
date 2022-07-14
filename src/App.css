@@ -16,10 +16,13 @@
   --blurBg: #a6ddf0;
 }
 
+body {
+  background-color: var(--bg);
+}
+
 .App {
   overflow: hidden;
   color: var(--black);
-  background: var(--bg);
   padding: 1rem;
 }
 
