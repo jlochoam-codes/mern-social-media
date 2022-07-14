@@ -3,3 +3,9 @@
   display: grid;
   grid-template-columns: 20rem auto 15rem;
 }
+
+.ProfileLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}

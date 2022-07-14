@@ -1,13 +1,17 @@
 import React from 'react'
-import ProfileCard from '../../components/profileCard/ProfileCard'
 import ProfileInfo from '../../components/profileInfo/ProfileInfo'
+import FollowersCard from '../../components/followersCard/FollowersCard'
+import ProfileCard from '../../components/profileCard/ProfileCard'
 import TrendSide from '../../components/trendSide/TrendSide'
 import './Profile.css'
 
 const Profile = () => {
   return (
     <div className='Profile'>
-      <ProfileInfo />
+      <div className="ProfileLeft">
+        <ProfileInfo />
+        <FollowersCard />
+      </div>
       <ProfileCard />
       <TrendSide />
     </div>
