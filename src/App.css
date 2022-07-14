@@ -20,7 +20,7 @@
   overflow: hidden;
   color: var(--black);
   background: var(--bg);
-  padding: 1rem 1rem;
+  padding: 1rem;
 }
 
 .blur {
