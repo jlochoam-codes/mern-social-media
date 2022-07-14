@@ -1,3 +1,17 @@
 .trendSide {
-  color: blue;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.ActionBar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.ActionBar>img {
+  width: 1.5rem;
+  height: 1.5rem;
+  cursor: pointer;
 }
