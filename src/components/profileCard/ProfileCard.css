@@ -6,6 +6,7 @@
   gap: 0.5rem;
   overflow-x: clip;
   background-color: var(--cardColor);
+  margin: 0 1rem;
 }
 
 .profileImages {
@@ -21,7 +22,7 @@
 }
 
 .profileImages>img:last-child {
-  width: 5rem;
+  width: 6rem;
   border-radius: 50%;
   position: absolute;
   /*We want half inside the cover, half outside the cover*/
