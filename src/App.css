@@ -31,3 +31,12 @@
   background: var(--blurBg);
   filter: blur(60px);
 }
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgb(161, 161, 161);
+  border-radius: 10px;
+}
