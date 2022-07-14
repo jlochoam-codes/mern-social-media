@@ -2,6 +2,7 @@ import React from 'react'
 import Cover from '../../img/cover.jpg'
 import Profile from '../../img/profileImg.jpg'
 import './ProfileCard.css'
+import { ProfileData } from '../../Data/ProfileData'
 
 const ProfileCard = () => {
   return (
@@ -13,20 +14,20 @@ const ProfileCard = () => {
       </div>
 
       <div className="profileName">
-        <span>Jose Ochoa</span>
-        <span>Web Developer</span>
+        <span>{ProfileData.name}</span>
+        <span>{ProfileData.ocupation}</span>
       </div>
 
       <div className="followStatus">
         <hr />
         <div>
           <div className="followers">
-            <span>9,999</span>
+            <span>{ProfileData.followers}</span>
             <span>Followers</span>
           </div>
           <div className="verticalLine" />
           <div className="followings">
-            <span>256</span>
+            <span>{ProfileData.following}</span>
             <span>Followings</span>
           </div>
         </div>
