@@ -1,7 +1,7 @@
 .Trends {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1.5rem;
   max-height: 70vh;
   background-color: var(--cardColor);
   border-radius: 0.7rem;
@@ -11,5 +11,5 @@
 
 .TrendsTitle {
   font-weight: bold;
-  font-size: 1.3rem;
+  font-size: 1.1rem;
 }

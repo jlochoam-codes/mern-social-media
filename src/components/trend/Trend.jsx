@@ -3,7 +3,10 @@ import './Trend.css'
 
 const Trend = ({ data }) => {
   return (
-    <div className='Trend'>Trend</div>
+    <div className='Trend'>
+      <div className="TrendName">#{data.name}</div>
+      <div className="TrendShares">{data.shares} shares</div>
+    </div>
   )
 }
 
