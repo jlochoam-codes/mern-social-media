@@ -1,3 +1,15 @@
 .Trends {
-  color: red;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  max-height: 70vh;
+  background-color: var(--cardColor);
+  border-radius: 0.7rem;
+  padding: 1.5rem;
+  overflow: auto;
+}
+
+.TrendsTitle {
+  font-weight: bold;
+  font-size: 1.3rem;
 }
