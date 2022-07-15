@@ -1,10 +1,11 @@
 import React from 'react'
+import AuthLogoName from '../../components/AuthLogoName/AuthLogoName'
 import './Auth.css'
 
 const Auth = () => {
   return (
     <div className='Auth'>
-      <div>Auth</div>
+      <AuthLogoName />
       <div>Auth</div>
     </div>
   )
