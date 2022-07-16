@@ -5,3 +5,7 @@
   justify-content: center;
   align-items: center;
 }
+
+.Name>h1 {
+  color: #f95f35;
+}
