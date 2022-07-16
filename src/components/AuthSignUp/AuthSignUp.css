@@ -1,0 +1,68 @@
+.AuthSignUp {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  background-color: var(--cardColor);
+  border-radius: 1rem;
+  padding: 1rem;
+}
+
+.AuthSignUp h4 {
+  font-size: 1.3rem;
+  margin: 0.5rem 0;
+}
+
+.AuthSignUpForm {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.AuthSignUpForm>.Name,
+.AuthSignUpForm>.Password {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+
+.FirstName,
+.LastName,
+.Username,
+.Pw,
+.ConfirmPw {
+  background-color: var(--inputColor);
+  border-radius: 10px;
+  padding: 0.8rem;
+}
+
+.AuthSignUpForm input {
+  background-color: transparent;
+  border: none;
+  outline: none;
+}
+
+.Username input {
+  width: 99%;
+}
+
+.AuthSignUpFooter {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+}
+
+.AuthSignUpSubmit>input {
+  border: none;
+  border-radius: 0.5rem;
+  color: white;
+  background-color: #f95f35;
+  padding: 0.5rem 1.5rem;
+}
+
+.AuthSignUpSubmit>input:hover {
+  cursor: pointer;
+  background-color: #f99827;
+}
