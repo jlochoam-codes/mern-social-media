@@ -28,12 +28,12 @@ const AuthSignUp = () => {
         </div>
         <div className="Password">
           <div className="Pw">
-            <input type="text"
+            <input type="password"
               name="password"
               placeholder="Password" />
           </div>
           <div className="ConfirmPw">
-            <input type="text"
+            <input type="password"
               name="confirmPw"
               placeholder="Confirm Password" />
           </div>
