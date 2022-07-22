@@ -1,0 +1,48 @@
+.AuthLogin {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  background-color: var(--cardColor);
+  border-radius: 1rem;
+  padding: 1rem;
+}
+
+.AuthLoginHeader h4 {
+  font-size: 1.3rem;
+  margin: 0.5rem 0;
+}
+
+.AuthLoginForm {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.AuthLoginForm input {
+  background-color: transparent;
+  border: none;
+  outline: none;
+}
+
+.AuthLoginFooter {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+}
+
+.AuthLoginSubmit>input {
+  border: none;
+  border-radius: 0.5rem;
+  color: white;
+  background-color: #f95f35;
+  padding: 0.5rem 1.5rem;
+}
+
+.AuthLoginSubmit>input:hover {
+  cursor: pointer;
+  background-color: #f99827;
+}
