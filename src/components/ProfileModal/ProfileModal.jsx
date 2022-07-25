@@ -12,6 +12,26 @@ const ProfileModal = ({ opened, setOpened }) => {
   const [maritalStatus, setMaritalStatus] = useState(ProfileData.maritalStatus);
   const [city, setCity] = useState(ProfileData.city);
   const [company, setCompany] = useState(ProfileData.company);
+  const [profileImage, setProfileImage] = useState('');
+  const [coverImage, setCoverImage] = useState('');
+
+  const onProfileImageChange = event => {
+    if (event.target.files && event.target.files[0]) {
+      let img = event.target.files[0];
+      setProfileImage({
+        image: URL.createObjectURL(img)
+      });
+    }
+  }
+
+  const onCoverImageChange = event => {
+    if (event.target.files && event.target.files[0]) {
+      let img = event.target.files[0];
+      setCoverImage({
+        image: URL.createObjectURL(img)
+      });
+    }
+  }
 
   return (
     <div className="ProfileModal">
@@ -61,6 +81,18 @@ const ProfileModal = ({ opened, setOpened }) => {
               <input type="text" name='updateCompany' value={company}
                 onChange={e => setCompany(e.target.value)} />
             </span>
+          </div>
+          <div className="ProfileModalFormProfImg">
+            <span>Profile image: </span>
+            <input type="file" name="profileImg"
+              accept='image/*' onChange={onProfileImageChange} />
+            <img src={profileImage} alt="Update profile" style={{ display: "none" }} />
+          </div>
+          <div className="ProfileModalFormCovImg">
+            <span>Cover image: </span>
+            <input type="file" name="coverImg"
+              accept='image/*' onChange={onCoverImageChange} />
+            <img src={coverImage} alt="Update cover" style={{ display: "none" }} />
           </div>
           <div className="ProfileModalFormSubmit">
             <input type="button" value="Confirm" />
