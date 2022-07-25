@@ -1,6 +1,4 @@
 import React from 'react'
-import Cover from '../../img/cover.jpg'
-import Profile from '../../img/profileImg.jpg'
 import './ProfileCard.css'
 import { ProfileData } from '../../Data/ProfileData'
 
@@ -9,8 +7,8 @@ const ProfileCard = () => {
     <div className='profileCard'>
 
       <div className='profileImages'>
-        <img src={Cover} alt="cover" />
-        <img src={Profile} alt="profile" />
+        <img src={ProfileData.coverImage} alt="cover" />
+        <img src={ProfileData.profileImage} alt="profile" />
       </div>
 
       <div className="profileName">
