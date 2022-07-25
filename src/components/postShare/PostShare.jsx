@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react'
 import './PostShare.css'
-import ProfileImage from '../../img/profileImg.jpg'
+import { ProfileData } from '../../Data/ProfileData';
 import {
   UilScenery,
   UilLocationPoint,
@@ -27,7 +27,7 @@ const PostShare = () => {
 
   return (
     <div className="PostShare">
-      <img src={ProfileImage} alt="Profile" />
+      <img src={ProfileData.profileImage} alt="Profile" />
       <div className="CreatePost">
         <div className="postText">
           <input type="text"
