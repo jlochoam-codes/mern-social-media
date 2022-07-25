@@ -1,3 +1,6 @@
+import Cover from '../img/cover.jpg'
+import Profile from '../img/profileImg.jpg'
+
 export const ProfileData = {
   name: "Jose Ochoa",
   ocupation: "Web Developer",
@@ -6,4 +9,6 @@ export const ProfileData = {
   company: "InjectionRegex inc",
   followers: 9999,
   following: 256,
+  profileImage: Profile,
+  coverImage: Cover,
 };
