@@ -1,0 +1,46 @@
+.ProfileModalForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.ProfileModalForm>div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ProfileModalForm .formField {
+  background-color: var(--inputColor);
+  border-radius: 10px;
+  padding: 0.5rem;
+}
+
+.ProfileModalForm input {
+  background-color: transparent;
+  border: none;
+  outline: none;
+}
+
+.ProfileModalForm>div>span {
+  font-weight: bold;
+  font-size: 0.8rem;
+}
+
+.ProfileModalFormSubmit {
+  align-self: flex-end;
+}
+
+.ProfileModalFormSubmit>input {
+  border: none;
+  border-radius: 0.5rem;
+  color: white;
+  background-color: #f95f35;
+  padding: 0.5rem 1.5rem;
+}
+
+.ProfileModalFormSubmit>input:hover {
+  cursor: pointer;
+  background-color: #f99827;
+}

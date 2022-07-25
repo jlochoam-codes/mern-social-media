@@ -1,15 +1,20 @@
 import React from 'react'
+import { useState } from 'react'
 import './ProfileInfo.css'
+import ProfileModal from '../ProfileModal/ProfileModal'
 import { UilPen } from '@iconscout/react-unicons'
 import { ProfileData } from '../../Data/ProfileData'
 
 const ProfileInfo = () => {
+  const [modalOpened, setModalOpened] = useState(false);
+
   return (
     <div className='ProfileInfo'>
       <div className="ProfileInfoHeader">
         <span className='ProfileInfoTitle'>Your info</span>
         <span className='ProfileInfoEditBtn'>
-          <UilPen size="1.5rem" />
+          <UilPen size="1.5rem" onClick={() => setModalOpened(true)} />
+          <ProfileModal opened={modalOpened} setOpened={setModalOpened} />
         </span>
       </div>
       <div className="ProfileInfoForm">
