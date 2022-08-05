@@ -34,6 +34,15 @@
   gap: 1rem;
 }
 
+.ToSignUp>button {
+  background: none;
+  border: none;
+  padding: 0;
+  color: #069;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
 .AuthLoginSubmit>input {
   border: none;
   border-radius: 0.5rem;

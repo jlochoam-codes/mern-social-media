@@ -1,7 +1,7 @@
 import React from 'react'
 import './AuthSignUp.css'
 
-const AuthSignUp = () => {
+const AuthSignUp = ({ setIsSignUp }) => {
   return (
     <div className='AuthSignUp'>
       <div className="AuthSignUpHeader">
@@ -41,7 +41,8 @@ const AuthSignUp = () => {
       </div>
       <div className="AuthSignUpFooter">
         <div className="ToLogin">
-          <a href="/">Already have an account? Login</a>
+          <button type='button'
+            onClick={() => { setIsSignUp(false) }}>Already have an account? Login</button>
         </div>
         <div className="AuthSignUpSubmit">
           <input type="button" value="Sign Up" />
