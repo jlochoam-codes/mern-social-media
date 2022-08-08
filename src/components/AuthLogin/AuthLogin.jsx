@@ -11,7 +11,8 @@ const AuthLogin = ({ setIsSignUp }) => {
         <div className="Username">
           <input type="text"
             name="username"
-            placeholder="Username" />
+            placeholder="Username"
+            autoFocus />
         </div>
         <div className="Pw">
           <input type="password"
