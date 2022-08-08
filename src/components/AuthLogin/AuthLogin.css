@@ -43,7 +43,7 @@
   cursor: pointer;
 }
 
-.AuthLoginSubmit>input {
+.AuthLoginSubmit>button {
   border: none;
   border-radius: 0.5rem;
   color: white;
@@ -51,7 +51,7 @@
   padding: 0.5rem 1.5rem;
 }
 
-.AuthLoginSubmit>input:hover {
+.AuthLoginSubmit>button:hover {
   cursor: pointer;
   background-color: #f99827;
 }

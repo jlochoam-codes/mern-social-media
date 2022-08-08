@@ -50,8 +50,9 @@
 .AuthSignUpFooter {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
   align-items: center;
-  gap: 1rem;
+  width: 100%;
 }
 
 .ToLogin>button {
@@ -63,7 +64,7 @@
   cursor: pointer;
 }
 
-.AuthSignUpSubmit>input {
+.AuthSignUpSubmit>button {
   border: none;
   border-radius: 0.5rem;
   color: white;
@@ -71,7 +72,7 @@
   padding: 0.5rem 1.5rem;
 }
 
-.AuthSignUpSubmit>input:hover {
+.AuthSignUpSubmit>button:hover {
   cursor: pointer;
   background-color: #f99827;
 }
