@@ -1,7 +1,11 @@
 import React, { useState } from 'react'
+import { useDispatch } from 'react-redux';
+import { login } from '../../actions/AuthActions';
 import './AuthLogin.css'
 
 const AuthLogin = ({ setIsSignUp }) => {
+  const dispatch = useDispatch();
+
   const [loginData, setLoginData] = useState({
     username: "", password: ""
   });
@@ -12,6 +16,7 @@ const AuthLogin = ({ setIsSignUp }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    dispatch(/*Action*/login(loginData));
   };
 
   return (

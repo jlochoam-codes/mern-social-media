@@ -1,7 +1,12 @@
 import React, { useState } from 'react'
+// Redux: way of accessing and setting state of any component from any component
+import { useDispatch } from 'react-redux';
+import { signUp } from '../../actions/AuthActions';
 import './AuthSignUp.css'
 
 const AuthSignUp = ({ setIsSignUp }) => {
+  const dispatch = useDispatch();
+
   const [signUpData, setSignUpData] = useState({
     firstName: "", lastName: "", username: "", password: "", confirmPw: ""
   });
@@ -16,10 +21,9 @@ const AuthSignUp = ({ setIsSignUp }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (signUpData.password !== signUpData.confirmPw) {
-      setIsSamePw(false);
-      return;
-    }
+    if (signUpData.password === signUpData.confirmPw) {
+      dispatch(/*Action*/signUp(signUpData));
+    } else setIsSamePw(false);
   };
 
   return (
@@ -27,7 +31,7 @@ const AuthSignUp = ({ setIsSignUp }) => {
       <div className="AuthSignUpHeader">
         <h4>Sign up</h4>
       </div>
-      <form className="AuthSignUpForm" onSubmit={handleSubmit} method='post' >
+      <form className="AuthSignUpForm" onSubmit={handleSubmit} >
         <div className="Name">
           <div className="FirstName">
             <input type="text"
