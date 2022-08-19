@@ -76,3 +76,8 @@
   cursor: pointer;
   background-color: #f99827;
 }
+
+.AuthSignUpSubmit>button:disabled {
+  background-color: grey;
+  cursor: auto;
+}

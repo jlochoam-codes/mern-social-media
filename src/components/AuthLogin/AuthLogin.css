@@ -55,3 +55,8 @@
   cursor: pointer;
   background-color: #f99827;
 }
+
+.AuthLoginSubmit>button:disabled {
+  background-color: grey;
+  cursor: auto;
+}

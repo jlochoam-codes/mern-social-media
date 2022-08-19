@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
 // Redux: way of accessing and setting state of any component from any component
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { signUp } from '../../actions/AuthActions';
 import './AuthSignUp.css'
 
 const AuthSignUp = ({ setIsSignUp }) => {
   const dispatch = useDispatch();
+  const loading = useSelector(state => state.authReducer.loading);
 
   const [signUpData, setSignUpData] = useState({
     firstName: "", lastName: "", username: "", password: "", confirmPw: ""
@@ -92,7 +93,9 @@ const AuthSignUp = ({ setIsSignUp }) => {
               onClick={() => { setIsSignUp(false) }}>Already have an account? Login</button>
           </div>
           <div className="AuthSignUpSubmit">
-            <button type="submit">Sign Up</button>
+            <button type="submit" disabled={loading ? "true" : ""} >
+              {loading ? "Loading..." : "Sign Up"}
+            </button>
           </div>
         </div>
       </form>

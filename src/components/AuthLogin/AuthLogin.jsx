@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { login } from '../../actions/AuthActions';
 import './AuthLogin.css'
 
 const AuthLogin = ({ setIsSignUp }) => {
   const dispatch = useDispatch();
+  const loading = useSelector(state => state.authReducer.loading);
 
   const [loginData, setLoginData] = useState({
     username: "", password: ""
@@ -46,7 +47,9 @@ const AuthLogin = ({ setIsSignUp }) => {
               onClick={() => { setIsSignUp(true) }}>No account yet? Signup</button>
           </div>
           <div className="AuthLoginSubmit">
-            <button type="submit" >Login</button>
+            <button type="submit" disabled={loading ? "true" : ""} >
+              {loading ? "Loading..." : "Login"}
+            </button>
           </div>
         </div>
       </form>
