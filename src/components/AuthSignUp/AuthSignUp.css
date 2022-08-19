@@ -79,5 +79,5 @@
 
 .AuthSignUpSubmit>button:disabled {
   background-color: grey;
-  cursor: auto;
+  cursor: not-allowed;
 }
