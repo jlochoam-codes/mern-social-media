@@ -8,9 +8,9 @@ import Share from '../../img/share.png'
 const Post = ({ data }) => {
   return (
     <div className='Post'>
-      <div className="PostImage">
+      {data.img && <div className="PostImage">
         <img src={data.img} alt="Post" />
-      </div>
+      </div>}
       <div className="PostContent">
         <div className="PostUser">{data.name}</div>
         <div className="PostText">{data.desc}</div>
