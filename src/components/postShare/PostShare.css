@@ -52,7 +52,7 @@
   margin-left: auto;
 }
 
-.submitPost>input {
+.submitPost>button {
   border: none;
   border-radius: 0.3rem;
   color: white;
@@ -60,7 +60,7 @@
   padding: 0.35rem 1rem;
 }
 
-.submitPost>input:hover {
+.submitPost>button:hover {
   cursor: pointer;
   background-color: #f99827;
 }

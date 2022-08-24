@@ -7,22 +7,51 @@ import {
   UilSchedule,
   UilTimes
 } from '@iconscout/react-unicons';
+import { useDispatch, useSelector } from 'react-redux';
+import { uploadImage } from '../../actions/ImageActions';
 
 const PostShare = () => {
   const [image, setImage] = useState(null);
   const imageRef = useRef();
+  const [description, setDescription] = useState('');
+  const { user } = useSelector(state => state.authReducer.authData);
+  const dispatch = useDispatch();
 
   const onImageChange = event => {
     if (event.target.files && event.target.files[0]) {
       let img = event.target.files[0];
-      setImage({
-        image: URL.createObjectURL(img)
-      });
+      setImage(img);
     }
+  }
+
+  const onDescriptionChange = e => {
+    setDescription(e.target.value);
   }
 
   const cancelImagePost = () => {
     setImage(null);
+  }
+
+  const handleSubmit = event => {
+    event.preventDefault();
+    const newPost = {
+      userId: user._id,
+      desc: description,
+      likes: []
+    };
+    if (image) {
+      const data = new FormData();
+      const fileName = Date.now() + image.name;
+      data.append("name", fileName);
+      data.append("file", image);
+      newPost.image = fileName;
+      // For simplicity, the images will be stored in the server's local storage
+      try {
+        dispatch(uploadImage(data));
+      } catch (err) {
+        console.error(err);
+      }
+    }
   }
 
   return (
@@ -31,8 +60,10 @@ const PostShare = () => {
       <div className="CreatePost">
         <div className="postText">
           <input type="text"
-            name="postBar"
-            placeholder="Say it to the world!" />
+            required
+            name="postDescriptionBar"
+            placeholder="Say it to the world!"
+            onChange={onDescriptionChange} />
         </div>
         <div className="postOptions">
           <div className="option" style={{ color: "var(--photo)" }}
@@ -50,7 +81,7 @@ const PostShare = () => {
             <span className="description">Schedule</span>
           </div>
           <div className="submitPost">
-            <input type="button" value="Share" />
+            <button type="submit" onClick={handleSubmit}>Share</button>
           </div>
           <div style={{ display: "none" }}>
             <input
@@ -67,7 +98,7 @@ const PostShare = () => {
             <span onClick={cancelImagePost}>
               <UilTimes />
             </span>
-            <img src={image.image} alt="For new post" />
+            <img src={URL.createObjectURL(image)} alt="For new post" />
           </div>
         )}
       </div>
