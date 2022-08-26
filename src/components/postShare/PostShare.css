@@ -32,6 +32,13 @@
   width: 98%;
 }
 
+.postForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+}
+
 .postOptions {
   display: flex;
   gap: 1rem;

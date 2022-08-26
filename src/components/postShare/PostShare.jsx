@@ -8,12 +8,12 @@ import {
   UilTimes
 } from '@iconscout/react-unicons';
 import { useDispatch, useSelector } from 'react-redux';
-import { uploadImage } from '../../actions/ImageActions';
+import { uploadImage } from '../../actions/UploadActions';
 
 const PostShare = () => {
   const [image, setImage] = useState(null);
   const imageRef = useRef();
-  const [description, setDescription] = useState('');
+  const description = useRef();
   const { user } = useSelector(state => state.authReducer.authData);
   const dispatch = useDispatch();
 
@@ -24,10 +24,6 @@ const PostShare = () => {
     }
   }
 
-  const onDescriptionChange = e => {
-    setDescription(e.target.value);
-  }
-
   const cancelImagePost = () => {
     setImage(null);
   }
@@ -36,16 +32,14 @@ const PostShare = () => {
     event.preventDefault();
     const newPost = {
       userId: user._id,
-      desc: description,
-      likes: []
+      desc: description.current.value
     };
     if (image) {
       const data = new FormData();
       const fileName = Date.now() + image.name;
       data.append("name", fileName);
       data.append("file", image);
-      newPost.image = fileName;
-      // For simplicity, the images will be stored in the server's local storage
+      newPost.img = fileName;
       try {
         dispatch(uploadImage(data));
       } catch (err) {
@@ -58,30 +52,32 @@ const PostShare = () => {
     <div className="PostShare">
       <img src={ProfileData.profileImage} alt="Profile" />
       <div className="CreatePost">
-        <div className="postText">
-          <input type="text"
-            required
-            name="postDescriptionBar"
-            placeholder="Say it to the world!"
-            onChange={onDescriptionChange} />
-        </div>
-        <div className="postOptions">
-          <div className="option" style={{ color: "var(--photo)" }}
-            onClick={() => imageRef.current.click()}
-          >
-            <UilScenery />
-            <span className="description">Photo</span>
+        <form className="postForm" onSubmit={handleSubmit}>
+          <div className="postText">
+            <input type="text"
+              required
+              name="postDescriptionBar"
+              placeholder="Say it to the world!"
+              ref={description} />
           </div>
-          <div className="option" style={{ color: "var(--location)" }}>
-            <UilLocationPoint />
-            <span className="description">Location</span>
-          </div>
-          <div className="option" style={{ color: "var(--schedule)" }}>
-            <UilSchedule />
-            <span className="description">Schedule</span>
-          </div>
-          <div className="submitPost">
-            <button type="submit" onClick={handleSubmit}>Share</button>
+          <div className="postOptions">
+            <div className="option" style={{ color: "var(--photo)" }}
+              onClick={() => imageRef.current.click()}
+            >
+              <UilScenery />
+              <span className="description">Photo</span>
+            </div>
+            <div className="option" style={{ color: "var(--location)" }}>
+              <UilLocationPoint />
+              <span className="description">Location</span>
+            </div>
+            <div className="option" style={{ color: "var(--schedule)" }}>
+              <UilSchedule />
+              <span className="description">Schedule</span>
+            </div>
+            <div className="submitPost">
+              <button type="submit">Share</button>
+            </div>
           </div>
           <div style={{ display: "none" }}>
             <input
@@ -92,7 +88,7 @@ const PostShare = () => {
               onChange={onImageChange}
             />
           </div>
-        </div>
+        </form>
         {image && (
           <div className="previewImage">
             <span onClick={cancelImagePost}>
