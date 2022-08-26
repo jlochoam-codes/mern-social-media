@@ -7,3 +7,14 @@ export const uploadImage = (imageData) => async (dispatch) => {
     console.error(err);
   }
 };
+
+export const uploadPost = (postData) => async (dispatch) => {
+  dispatch({ type: "UPLOAD_START" });
+  try {
+    const newPost = await uploadApi.uploadPost(postData);
+    dispatch({ type: "UPLOAD_SUCCESS", data: newPost.data });
+  } catch (err) {
+    console.error(err);
+    dispatch({ type: "UPLOAD_FAIL" });
+  }
+};

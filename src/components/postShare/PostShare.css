@@ -72,6 +72,11 @@
   background-color: #f99827;
 }
 
+.submitPost>button:disabled {
+  background-color: grey;
+  cursor: not-allowed;
+}
+
 .previewImage {
   display: flex;
   flex-direction: row;

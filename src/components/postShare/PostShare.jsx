@@ -8,13 +8,14 @@ import {
   UilTimes
 } from '@iconscout/react-unicons';
 import { useDispatch, useSelector } from 'react-redux';
-import { uploadImage } from '../../actions/UploadActions';
+import { uploadImage, uploadPost } from '../../actions/UploadActions';
 
 const PostShare = () => {
   const [image, setImage] = useState(null);
   const imageRef = useRef();
   const description = useRef();
   const { user } = useSelector(state => state.authReducer.authData);
+  const uploadingPost = useSelector(state => state.postsReducer.uploading);
   const dispatch = useDispatch();
 
   const onImageChange = event => {
@@ -46,6 +47,17 @@ const PostShare = () => {
         console.error(err);
       }
     }
+    try {
+      dispatch(uploadPost(newPost));
+      resetPostShare();
+    } catch (err) {
+      console.error(err);
+    }
+  }
+
+  const resetPostShare = () => {
+    setImage(null);
+    description.current.value = "";
   }
 
   return (
@@ -76,7 +88,9 @@ const PostShare = () => {
               <span className="description">Schedule</span>
             </div>
             <div className="submitPost">
-              <button type="submit">Share</button>
+              <button type="submit" disabled={uploadingPost ? "true" : ""}>
+                {uploadingPost ? "Uploading..." : "Share"}
+              </button>
             </div>
           </div>
           <div style={{ display: "none" }}>
