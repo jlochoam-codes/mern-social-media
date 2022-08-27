@@ -12,10 +12,10 @@ const Post = ({ data }) => {
         <img src={data.img} alt="Post" />
       </div>}
       <div className="PostContent">
-        <div className="PostUser">{data.name}</div>
+        <div className="PostUser">{data.userId}</div>
         <div className="PostText">{data.desc}</div>
       </div>
-      <div className="PostLikes">{data.likes} likes</div>
+      <div className="PostLikes">{data.likes.length} likes</div>
       <div className="PostInteraction">
         {(data.liked)
           ? <img src={Like} alt="Liked post, click to unlike" />

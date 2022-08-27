@@ -1,14 +1,32 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { PostsData } from '../../Data/PostsData'
+import { useSelector } from 'react-redux'
 import './Posts.css'
 import Post from '../post/Post'
-import { PostsData } from '../../Data/PostsData'
+import * as postsApi from '../../api/PostsReqs'
 
 const Posts = () => {
+  const { user } = useSelector(state => state.authReducer.authData);
+  const { uploading } = useSelector(state => state.postsReducer);
+  const [timelinePosts, setTimelinePosts] = useState([]);
+
+  useEffect(() => {
+    const fetchTimelinePosts = async () => {
+      try {
+        const timelinePostsData = await postsApi.getTimelinePosts(user._id);
+        setTimelinePosts(timelinePostsData.data);
+      } catch (err) {
+        console.error(err);
+      }
+    };
+    fetchTimelinePosts();
+  }, []);
+
   return (
     <div className='Posts'>
       {
-        PostsData.map((post, id) => {
-          return <Post data={post} id={id} />
+        timelinePosts.map((post, key) => {
+          return <Post data={post} key={key} />
         })
       }
     </div>
