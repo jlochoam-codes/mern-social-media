@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import { PostsData } from '../../Data/PostsData'
 import { useSelector } from 'react-redux'
 import './Posts.css'
 import Post from '../post/Post'
