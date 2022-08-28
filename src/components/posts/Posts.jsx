@@ -7,7 +7,9 @@ import * as userApi from '../../api/UserReqs'
 
 const Posts = () => {
   const { user } = useSelector(state => state.authReducer.authData);
+  const { uploading } = useSelector(state => state.postsReducer);
   const [timelinePosts, setTimelinePosts] = useState([]);
+  const [loadingPosts, setLoadingPosts] = useState(true);
 
   useEffect(() => {
     const fetchTimelinePosts = async () => {
@@ -20,19 +22,21 @@ const Posts = () => {
           p.name = authorName;
         }
         setTimelinePosts(timelinePostsData);
+        setLoadingPosts(false);
       } catch (err) {
         console.error(err);
       }
     };
     fetchTimelinePosts();
-  }, []);
+  }, [uploading]);
 
   return (
     <div className='Posts'>
       {
-        timelinePosts.map((post, key) => {
-          return <Post data={post} key={key} />
-        })
+        (loadingPosts || uploading) ? "Loading posts..." :
+          timelinePosts.map((post, key) => {
+            return <Post data={post} key={key} />
+          })
       }
     </div>
   )

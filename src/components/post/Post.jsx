@@ -9,7 +9,7 @@ const Post = ({ data }) => {
   return (
     <div className='Post'>
       {data.img && <div className="PostImage">
-        <img src={data.img} alt="Post" />
+        <img src={process.env.REACT_APP_PUBLIC_FOLDER + data.img} alt="Post" />
       </div>}
       <div className="PostContent">
         <div className="PostUser">{data.name}</div>
