@@ -12,7 +12,7 @@ const Post = ({ data }) => {
         <img src={data.img} alt="Post" />
       </div>}
       <div className="PostContent">
-        <div className="PostUser">{data.userId}</div>
+        <div className="PostUser">{data.name}</div>
         <div className="PostText">{data.desc}</div>
       </div>
       <div className="PostLikes">{data.likes.length} likes</div>
