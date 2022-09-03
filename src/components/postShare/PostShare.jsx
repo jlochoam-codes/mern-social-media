@@ -1,6 +1,5 @@
 import React, { useState, useRef } from 'react'
 import './PostShare.css'
-import { ProfileData } from '../../Data/ProfileData';
 import {
   UilScenery,
   UilLocationPoint,
@@ -17,6 +16,7 @@ const PostShare = () => {
   const { user } = useSelector(state => state.authReducer.authData);
   const uploadingPost = useSelector(state => state.postsReducer.uploading);
   const dispatch = useDispatch();
+  const serverPublicImgs = process.env.REACT_APP_PUBLIC_FOLDER;
 
   const onImageChange = event => {
     if (event.target.files && event.target.files[0]) {
@@ -62,7 +62,9 @@ const PostShare = () => {
 
   return (
     <div className="PostShare">
-      <img src={ProfileData.profileImage} alt="Profile" />
+      <img src={
+        serverPublicImgs + (user.profilePicture ? user.profilePicture : "noProfilePicture.jpg")
+      } alt="Profile" />
       <div className="CreatePost">
         <form className="postForm" onSubmit={handleSubmit}>
           <div className="postText">
