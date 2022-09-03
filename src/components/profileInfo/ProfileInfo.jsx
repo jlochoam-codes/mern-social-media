@@ -1,11 +1,11 @@
-import React from 'react'
-import { useState } from 'react'
-import './ProfileInfo.css'
+import React, { useState } from 'react'
+import { useSelector } from 'react-redux';
 import ProfileModal from '../ProfileModal/ProfileModal'
 import { UilPen } from '@iconscout/react-unicons'
-import { ProfileData } from '../../Data/ProfileData'
+import './ProfileInfo.css'
 
 const ProfileInfo = () => {
+  const { user } = useSelector(state => state.authReducer.authData);
   const [modalOpened, setModalOpened] = useState(false);
 
   return (
@@ -20,23 +20,19 @@ const ProfileInfo = () => {
       <div className="ProfileInfoForm">
         <div className="ProfileInfoField">
           <span>Name </span>
-          <span>{ProfileData.name}</span>
-        </div>
-        <div className="ProfileInfoField">
-          <span>Ocupation </span>
-          <span>{ProfileData.ocupation}</span>
+          <span>{user.firstName} {user.lastName}</span>
         </div>
         <div className="ProfileInfoField">
           <span>Marital status </span>
-          <span>{ProfileData.maritalStatus}</span>
+          <span>{user.maritalStatus}</span>
         </div>
         <div className="ProfileInfoField">
           <span>Lives in </span>
-          <span>{ProfileData.city}</span>
+          <span>{user.city}</span>
         </div>
         <div className="ProfileInfoField">
           <span>Works at </span>
-          <span>{ProfileData.company}</span>
+          <span>{user.company}</span>
         </div>
       </div>
       <div className="LogOut">
