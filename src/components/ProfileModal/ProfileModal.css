@@ -32,7 +32,7 @@
   align-self: flex-end;
 }
 
-.ProfileModalFormSubmit>input {
+.ProfileModalFormSubmit>button {
   border: none;
   border-radius: 0.5rem;
   color: white;
@@ -40,7 +40,12 @@
   padding: 0.5rem 1.5rem;
 }
 
-.ProfileModalFormSubmit>input:hover {
+.ProfileModalFormSubmit>button:hover {
   cursor: pointer;
   background-color: #f99827;
+}
+
+.ProfileModalFormSubmit>button:disabled {
+  background-color: grey;
+  cursor: not-allowed;
 }

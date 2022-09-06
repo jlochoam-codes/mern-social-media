@@ -1,17 +1,20 @@
-import React from 'react'
-import { useState } from 'react'
-import './ProfileModal.css'
+import React, { useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { Modal, useMantineTheme } from '@mantine/core'
-import { ProfileData } from '../../Data/ProfileData'
+import './ProfileModal.css'
+import { updateUser } from '../../actions/UserActions'
 
 const ProfileModal = ({ opened, setOpened }) => {
   const theme = useMantineTheme();
 
-  const [name, setName] = useState(ProfileData.name);
-  const [ocupation, setOcupation] = useState(ProfileData.ocupation);
-  const [maritalStatus, setMaritalStatus] = useState(ProfileData.maritalStatus);
-  const [city, setCity] = useState(ProfileData.city);
-  const [company, setCompany] = useState(ProfileData.company);
+  const { user } = useSelector(state => state.authReducer.authData);
+  const dispatch = useDispatch();
+  const { loading, error } = useSelector(state => state.userReducer);
+  const [firstName, setFirstName] = useState(user.firstName);
+  const [lastName, setLastName] = useState(user.lastName);
+  const [maritalStatus, setMaritalStatus] = useState(user.maritalStatus);
+  const [city, setCity] = useState(user.city);
+  const [job, setJob] = useState(user.job);
   const [profileImage, setProfileImage] = useState('');
   const [coverImage, setCoverImage] = useState('');
 
@@ -33,6 +36,32 @@ const ProfileModal = ({ opened, setOpened }) => {
     }
   }
 
+  const handleSubmit = event => {
+    event.preventDefault();
+    if (!firstName || !lastName) {
+      console.log('First and Last name are required fields');
+      return;
+    }
+    const updatedUser = {
+      firstName,
+      lastName,
+      maritalStatus,
+      city,
+      job,
+      requesterUserId: user._id
+    };
+    try {
+      dispatch(updateUser(user._id, updatedUser));
+      if (error) {
+        alert('The user could not be updated, please try again later');
+        return;
+      }
+      setOpened(false);
+    } catch (err) {
+      console.error(err);
+    }
+  }
+
   return (
     <div className="ProfileModal">
       <Modal
@@ -46,19 +75,19 @@ const ProfileModal = ({ opened, setOpened }) => {
         overflow="inside"
         radius={10}
       >
-        <div className="ProfileModalForm">
-          <div className="ProfileModalFormName">
-            <span>Name: </span>
+        <form className="ProfileModalForm" onSubmit={handleSubmit}>
+          <div className="ProfileModalFormFirstName">
+            <span>First name: </span>
             <span className="formField">
-              <input type="text" name='updateName' value={name}
-                onChange={e => setName(e.target.value)} />
+              <input type="text" name='updateFirstName' value={firstName}
+                onChange={e => setFirstName(e.target.value)} required />
             </span>
           </div>
-          <div className="ProfileModalFormOcupation">
-            <span>Ocupation: </span>
+          <div className="ProfileModalFormLastName">
+            <span>Last name: </span>
             <span className="formField">
-              <input type="text" name='updateOcupation' value={ocupation}
-                onChange={e => setOcupation(e.target.value)} />
+              <input type="text" name='updateLastName' value={lastName}
+                onChange={e => setLastName(e.target.value)} required />
             </span>
           </div>
           <div className="ProfileModalFormMarital">
@@ -75,11 +104,11 @@ const ProfileModal = ({ opened, setOpened }) => {
                 onChange={e => setCity(e.target.value)} />
             </span>
           </div>
-          <div className="ProfileModalFormCompany">
-            <span>Works at: </span>
+          <div className="ProfileModalFormJob">
+            <span>Job: </span>
             <span className="formField">
-              <input type="text" name='updateCompany' value={company}
-                onChange={e => setCompany(e.target.value)} />
+              <input type="text" name='updateJob' value={job}
+                onChange={e => setJob(e.target.value)} />
             </span>
           </div>
           <div className="ProfileModalFormProfImg">
@@ -95,9 +124,11 @@ const ProfileModal = ({ opened, setOpened }) => {
             <img src={coverImage} alt="Update cover" style={{ display: "none" }} />
           </div>
           <div className="ProfileModalFormSubmit">
-            <input type="button" value="Confirm" />
+            <button type="submit" disabled={loading ? "true" : ""}>
+              {loading ? "Loading..." : "Confirm"}
+            </button>
           </div>
-        </div>
+        </form>
       </Modal>
     </div>
   );
