@@ -1,8 +1,9 @@
-import React from 'react'
+import React from 'react';
 import { useSelector } from 'react-redux';
-import './ProfileCard.css'
+import { Link } from 'react-router-dom';
+import './ProfileCard.css';
 
-const ProfileCard = () => {
+const ProfileCard = ({ location }) => {
   const { user } = useSelector(state => state.authReducer.authData);
   const serverPublicImgs = process.env.REACT_APP_PUBLIC_FOLDER;
 
@@ -38,7 +39,14 @@ const ProfileCard = () => {
         </div>
         <hr />
       </div>
-      <span>My Profile</span>
+      {
+        location !== "Profile" &&
+        <span>
+          <Link to="/profile" style={{ "textDecoration": "none", "color": "inherit" }}>
+            My Profile
+          </Link>
+        </span>
+      }
     </div>
   )
 }

@@ -4,6 +4,7 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import "./App.css"
 import Auth from "./pages/Auth/Auth"
 import Home from "./pages/home/Home"
+import Profile from "./pages/profile/Profile"
 
 function App() {
   const user = useSelector(state => state.authReducer.authData);
@@ -23,6 +24,10 @@ function App() {
 
         <Route path='/auth' element={
           user ? <Navigate to='../home' /> : <Auth />
+        } />
+
+        <Route path='/profile' element={
+          user ? <Profile /> : <Navigate to='/auth' />
         } />
       </Routes>
     </div>

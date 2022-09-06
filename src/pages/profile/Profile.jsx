@@ -12,7 +12,7 @@ const Profile = () => {
         <ProfileInfo />
         <FollowersCard />
       </div>
-      <ProfileCard />
+      <ProfileCard location={"Profile"} />
       <TrendSide />
     </div>
   )
