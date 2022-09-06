@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 import './TrendSide.css'
 import Trends from '../trends/Trends'
 import Home from '../../img/home.png'
@@ -9,7 +10,9 @@ const TrendSide = () => {
   return (
     <div className='trendSide'>
       <div className="ActionBar">
-        <img src={Home} alt="Home button" />
+        <Link className="image" to="/home">
+          <img src={Home} alt="Home button" />
+        </Link>
         <img src={Notif} alt="Notifications button" />
         <div className="option">
           <UilSetting size="1.5rem" />
