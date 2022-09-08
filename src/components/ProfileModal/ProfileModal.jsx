@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Modal, useMantineTheme } from '@mantine/core'
 import './ProfileModal.css'
 import { updateUser } from '../../actions/UserActions'
+import { uploadImage } from '../../actions/UploadActions'
 
 const ProfileModal = ({ opened, setOpened }) => {
   const theme = useMantineTheme();
@@ -15,25 +16,21 @@ const ProfileModal = ({ opened, setOpened }) => {
   const [maritalStatus, setMaritalStatus] = useState(user.maritalStatus);
   const [city, setCity] = useState(user.city);
   const [job, setJob] = useState(user.job);
-  const [profileImage, setProfileImage] = useState('');
-  const [coverImage, setCoverImage] = useState('');
+  const [profileImage, setProfileImage] = useState(null);
+  const [coverImage, setCoverImage] = useState(null);
 
   const onProfileImageChange = event => {
     if (event.target.files && event.target.files[0]) {
       let img = event.target.files[0];
-      setProfileImage({
-        image: URL.createObjectURL(img)
-      });
-    }
+      setProfileImage(img);
+    } else setProfileImage(null);
   }
 
   const onCoverImageChange = event => {
     if (event.target.files && event.target.files[0]) {
       let img = event.target.files[0];
-      setCoverImage({
-        image: URL.createObjectURL(img)
-      });
-    }
+      setCoverImage(img);
+    } else setCoverImage(null);
   }
 
   const handleSubmit = event => {
@@ -50,6 +47,30 @@ const ProfileModal = ({ opened, setOpened }) => {
       job,
       requesterUserId: user._id
     };
+    if (profileImage) {
+      const data = new FormData();
+      const fileName = Date.now() + profileImage.name;
+      data.append("name", fileName);
+      data.append("file", profileImage);
+      updatedUser.profilePicture = fileName;
+      try {
+        dispatch(uploadImage(data));
+      } catch (err) {
+        console.error(err);
+      }
+    } else updatedUser.profilePicture = "";
+    if (coverImage) {
+      const data = new FormData();
+      const fileName = Date.now() + coverImage.name;
+      data.append("name", fileName);
+      data.append("file", coverImage);
+      updatedUser.coverPicture = fileName;
+      try {
+        dispatch(uploadImage(data));
+      } catch (err) {
+        console.error(err);
+      }
+    } else updatedUser.coverPicture = "";
     try {
       dispatch(updateUser(user._id, updatedUser));
       if (error) {
@@ -115,13 +136,17 @@ const ProfileModal = ({ opened, setOpened }) => {
             <span>Profile image: </span>
             <input type="file" name="profileImg"
               accept='image/*' onChange={onProfileImageChange} />
-            <img src={profileImage} alt="Update profile" style={{ display: "none" }} />
+            {profileImage && <img src={URL.createObjectURL(profileImage)}
+              alt="Update profile"
+              style={{ display: "none" }} />}
           </div>
           <div className="ProfileModalFormCovImg">
             <span>Cover image: </span>
             <input type="file" name="coverImg"
               accept='image/*' onChange={onCoverImageChange} />
-            <img src={coverImage} alt="Update cover" style={{ display: "none" }} />
+            {coverImage && <img src={URL.createObjectURL(coverImage)}
+              alt="Update cover"
+              style={{ display: "none" }} />}
           </div>
           <div className="ProfileModalFormSubmit">
             <button type="submit" disabled={loading ? "true" : ""}>
