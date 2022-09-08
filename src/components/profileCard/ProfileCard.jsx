@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import './ProfileCard.css';
 
 const ProfileCard = ({ location }) => {
-  const { user } = useSelector(state => state.authReducer.authData);
+  const { user } = useSelector(state => state.userReducer.userData);
   const serverPublicImgs = process.env.REACT_APP_PUBLIC_FOLDER;
 
   return (

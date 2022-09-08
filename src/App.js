@@ -7,7 +7,7 @@ import Home from "./pages/home/Home"
 import Profile from "./pages/profile/Profile"
 
 function App() {
-  const user = useSelector(state => state.authReducer.authData);
+  const user = useSelector(state => state.userReducer.userData);
 
   return (
     <div className="App">

@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
 // Redux: way of accessing and setting state of any component from any component
 import { useDispatch, useSelector } from 'react-redux';
-import { signUp } from '../../actions/AuthActions';
+import { signUp } from '../../actions/UserActions';
 import './AuthSignUp.css'
 
 const AuthSignUp = ({ setIsSignUp }) => {
   const dispatch = useDispatch();
-  const loading = useSelector(state => state.authReducer.loading);
+  const loading = useSelector(state => state.userReducer.loading);
 
   const [signUpData, setSignUpData] = useState({
     firstName: "", lastName: "", username: "", password: "", confirmPw: ""

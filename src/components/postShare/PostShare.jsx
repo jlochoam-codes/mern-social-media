@@ -13,7 +13,7 @@ const PostShare = () => {
   const [image, setImage] = useState(null);
   const imageRef = useRef();
   const description = useRef();
-  const { user } = useSelector(state => state.authReducer.authData);
+  const { user } = useSelector(state => state.userReducer.userData);
   const uploadingPost = useSelector(state => state.postsReducer.uploading);
   const dispatch = useDispatch();
   const serverPublicImgs = process.env.REACT_APP_PUBLIC_FOLDER;

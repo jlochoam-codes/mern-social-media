@@ -8,7 +8,7 @@ import Comment from '../../img/comment.png'
 import Share from '../../img/share.png'
 
 const Post = ({ data }) => {
-  const { user } = useSelector(state => state.authReducer.authData);
+  const { user } = useSelector(state => state.userReducer.userData);
   const [likedByUser, setLikedByUser] = useState(data.likes.includes(user._id));
   const [numOfLikes, setNumOfLikes] = useState(data.likes.length);
 

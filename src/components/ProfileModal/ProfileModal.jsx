@@ -7,7 +7,7 @@ import { updateUser } from '../../actions/UserActions'
 const ProfileModal = ({ opened, setOpened }) => {
   const theme = useMantineTheme();
 
-  const { user } = useSelector(state => state.authReducer.authData);
+  const { user } = useSelector(state => state.userReducer.userData);
   const dispatch = useDispatch();
   const { loading, error } = useSelector(state => state.userReducer);
   const [firstName, setFirstName] = useState(user.firstName);

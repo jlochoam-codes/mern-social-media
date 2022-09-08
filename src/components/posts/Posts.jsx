@@ -6,7 +6,7 @@ import * as postsApi from '../../api/PostsReqs'
 import * as userApi from '../../api/UserReqs'
 
 const Posts = () => {
-  const { user } = useSelector(state => state.authReducer.authData);
+  const { user } = useSelector(state => state.userReducer.userData);
   const { uploading } = useSelector(state => state.postsReducer);
   const [timelinePosts, setTimelinePosts] = useState([]);
   const [loadingPosts, setLoadingPosts] = useState(true);

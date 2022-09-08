@@ -6,7 +6,7 @@ import './ProfileInfo.css'
 import * as userApi from '../../api/UserReqs'
 
 const ProfileInfo = () => {
-  const { user } = useSelector(state => state.authReducer.authData);
+  const { user } = useSelector(state => state.userReducer.userData);
   const [userData, setUserData] = useState({});
   const [modalOpened, setModalOpened] = useState(false);
 

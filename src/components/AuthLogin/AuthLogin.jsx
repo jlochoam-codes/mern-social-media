@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { login } from '../../actions/AuthActions';
+import { login } from '../../actions/UserActions';
 import './AuthLogin.css'
 
 const AuthLogin = ({ setIsSignUp }) => {
   const dispatch = useDispatch();
-  const loading = useSelector(state => state.authReducer.loading);
+  const loading = useSelector(state => state.userReducer.loading);
 
   const [loginData, setLoginData] = useState({
     username: "", password: ""
