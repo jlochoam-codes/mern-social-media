@@ -1,26 +1,12 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
 import ProfileModal from '../ProfileModal/ProfileModal'
 import { UilPen } from '@iconscout/react-unicons'
 import './ProfileInfo.css'
-import * as userApi from '../../api/UserReqs'
 
 const ProfileInfo = () => {
   const { user } = useSelector(state => state.userReducer.userData);
-  const [userData, setUserData] = useState({});
   const [modalOpened, setModalOpened] = useState(false);
-
-  useEffect(() => {
-    const fetchUserInfo = async () => {
-      try {
-        const { data } = await userApi.getUser(user._id);
-        setUserData(data);
-      } catch (err) {
-        console.error(err);
-      }
-    };
-    fetchUserInfo();
-  }, [modalOpened]);
 
   return (
     <div className='ProfileInfo'>
@@ -34,19 +20,19 @@ const ProfileInfo = () => {
       <div className="ProfileInfoForm">
         <div className="ProfileInfoField">
           <span>Name </span>
-          <span>{userData.firstName} {userData.lastName}</span>
+          <span>{user.firstName} {user.lastName}</span>
         </div>
         <div className="ProfileInfoField">
           <span>Marital status </span>
-          <span>{userData.maritalStatus}</span>
+          <span>{user.maritalStatus}</span>
         </div>
         <div className="ProfileInfoField">
           <span>Lives in </span>
-          <span>{userData.city}</span>
+          <span>{user.city}</span>
         </div>
         <div className="ProfileInfoField">
           <span>Works as </span>
-          <span>{userData.company}</span>
+          <span>{user.job}</span>
         </div>
       </div>
       <div className="LogOut">
