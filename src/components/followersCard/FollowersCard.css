@@ -3,13 +3,18 @@
   display: flex;
   flex-direction: column;
   gap: 0.6rem;
+  width: 100%;
 }
 
 .followersCard>h3 {
   font-weight: bold;
-  font-size: 0.7rem;
+  font-size: 1rem;
   margin-bottom: -0.1rem;
   margin-top: -0.2rem;
+}
+
+.noFollowers {
+  font-size: 0.7rem;
 }
 
 .follower {
@@ -41,7 +46,7 @@
 }
 
 .followerData>img {
-  max-width: 20%;
+  width: 40px;
   border-radius: 50%;
   margin-right: 0.5rem;
 }
